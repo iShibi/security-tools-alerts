@@ -1,24 +1,31 @@
 'use client';
 
 import * as Tabs from '@radix-ui/react-tabs';
-import { Cortex } from './Cortex';
-import { Defender } from './Defender';
+import { Cortex } from './Components/Cortex';
+import { Defender } from './Components/Defender';
+import { Splunk } from './Components/Splunk';
 
-export function SwitchReportComponent({ cortexRssFeed, defenderRssFeed }: SwitchReportComponentProps) {
+export function SwitchReportComponent({ cortexRssFeed, defenderRssFeed, splunkRssFeed }: SwitchReportComponentProps) {
 	return (
 		<Tabs.Root className='TabsRoot' defaultValue='tab1'>
 			<Tabs.List className='TabsList flex justify-center pb-4 pt-4' aria-label=''>
 				<Tabs.Trigger
-					className='TabsTrigger ml-2 w-fit rounded-tl-md border border-b-2 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500'
+					className='TabsTrigger w-fit rounded-tl-md border border-b-2 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500'
 					value='tab1'
 				>
 					Cortex
 				</Tabs.Trigger>
 				<Tabs.Trigger
-					className='TabsTrigger mr-2 w-fit rounded-tr-md border border-b-2 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500'
+					className='TabsTrigger w-fit border border-b-2 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500'
 					value='tab2'
 				>
 					Defender
+				</Tabs.Trigger>
+				<Tabs.Trigger
+					className='TabsTrigger w-fit rounded-tr-md border border-b-2 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500'
+					value='tab3'
+				>
+					Splunk
 				</Tabs.Trigger>
 			</Tabs.List>
 			<Tabs.Content className='TabsContent' value='tab1'>
@@ -27,6 +34,9 @@ export function SwitchReportComponent({ cortexRssFeed, defenderRssFeed }: Switch
 			<Tabs.Content className='TabsContent' value='tab2'>
 				<Defender defenderRssFeed={defenderRssFeed} />
 			</Tabs.Content>
+			<Tabs.Content className='TabsContent' value='tab3'>
+				<Splunk splunkRssFeed={splunkRssFeed} />
+			</Tabs.Content>
 		</Tabs.Root>
 	);
 }
@@ -34,4 +44,5 @@ export function SwitchReportComponent({ cortexRssFeed, defenderRssFeed }: Switch
 export interface SwitchReportComponentProps {
 	cortexRssFeed: string;
 	defenderRssFeed: string;
+	splunkRssFeed: string;
 }
