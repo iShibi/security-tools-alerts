@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { RssFeedType } from '../page';
 
 const regex = /Severity:\s*(\w+)\)/;
 type SevType = 'All' | 'None' | 'Medium' | 'High';
@@ -21,7 +22,7 @@ export function Cortex({ cortexRssFeed }: CortexParams) {
 			</select>
 			<div className='grid grid-cols-1 gap-y-2'>
 				{cortexRssFeed.items.map(item => {
-					let sev = regex.exec(item.title)?.at(1);
+					let sev = regex.exec(item.title!)?.at(1);
 					return sev?.toLowerCase() === selectedSev.toLowerCase() || selectedSev === 'All' ? (
 						<div key={item.title} className='bg-slate-300/80 shadow-md px-4 py-2 rounded-md'>
 							<h1 className='font-bold'>{item.title}</h1>
@@ -47,5 +48,5 @@ export function Cortex({ cortexRssFeed }: CortexParams) {
 }
 
 export interface CortexParams {
-	cortexRssFeed: any;
+	cortexRssFeed: RssFeedType;
 }

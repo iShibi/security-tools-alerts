@@ -1,5 +1,7 @@
 'use client';
 
+import { RssFeedType } from '../page';
+
 export function Defender({ defenderRssFeed }: DefenderParams) {
 	return (
 		<div className='grid grid-cols-1 gap-y-2 px-4'>
@@ -27,5 +29,5 @@ export function Defender({ defenderRssFeed }: DefenderParams) {
 }
 
 export interface DefenderParams {
-	defenderRssFeed: any;
+	defenderRssFeed: RssFeedType;
 }

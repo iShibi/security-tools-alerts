@@ -1,9 +1,15 @@
 import Parser from 'rss-parser';
 import { SwitchReportComponent } from './SwitchReport';
 
+export type RssFeedType = {
+	[key: string]: any;
+} & Parser.Output<{
+	[key: string]: any;
+}>;
+
 const parser = new Parser();
 
-async function getCortexData(): Promise<any> {
+async function getCortexData(): Promise<RssFeedType> {
 	const res = await fetch(`https://security.paloaltonetworks.com/rss.xml`, {
 		cache: 'no-store',
 	});
@@ -12,7 +18,7 @@ async function getCortexData(): Promise<any> {
 	return rssFeed;
 }
 
-async function getDefenderData(): Promise<any> {
+async function getDefenderData(): Promise<RssFeedType> {
 	const res = await fetch(`https://api.msrc.microsoft.com/update-guide/rss`, {
 		cache: 'no-store',
 	});
@@ -21,7 +27,7 @@ async function getDefenderData(): Promise<any> {
 	return rssFeed;
 }
 
-async function getSplunkData(): Promise<any> {
+async function getSplunkData(): Promise<RssFeedType> {
 	const res = await fetch(`https://advisory.splunk.com/feed.xml`, {
 		cache: 'no-store',
 	});

@@ -4,6 +4,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 import { Cortex } from './Components/Cortex';
 import { Defender } from './Components/Defender';
 import { Splunk } from './Components/Splunk';
+import { RssFeedType } from './page';
 
 export function SwitchReportComponent({ cortexRssFeed, defenderRssFeed, splunkRssFeed }: SwitchReportComponentProps) {
 	return (
@@ -42,7 +43,7 @@ export function SwitchReportComponent({ cortexRssFeed, defenderRssFeed, splunkRs
 }
 
 export interface SwitchReportComponentProps {
-	cortexRssFeed: string;
-	defenderRssFeed: string;
-	splunkRssFeed: string;
+	cortexRssFeed: RssFeedType;
+	defenderRssFeed: RssFeedType;
+	splunkRssFeed: RssFeedType;
 }
