@@ -1,12 +1,12 @@
 'use client';
 
 import * as Tabs from '@radix-ui/react-tabs';
-import { Cortex } from './Components/Cortex';
 import { Defender } from './Components/Defender';
+import { PaloAlto } from './Components/PaloAlto';
 import { Splunk } from './Components/Splunk';
 import { RssFeedType } from './page';
 
-export function SwitchReportComponent({ cortexRssFeed, defenderRssFeed, splunkRssFeed }: SwitchReportComponentProps) {
+export function SwitchReportComponent({ paloAltoRssFeed, defenderRssFeed, splunkRssFeed }: SwitchReportComponentProps) {
 	return (
 		<Tabs.Root className='TabsRoot' defaultValue='tab1'>
 			<Tabs.List className='TabsList flex justify-center pb-4 pt-4' aria-label=''>
@@ -14,7 +14,7 @@ export function SwitchReportComponent({ cortexRssFeed, defenderRssFeed, splunkRs
 					className='TabsTrigger w-fit rounded-tl-md border border-b-2 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500'
 					value='tab1'
 				>
-					Cortex
+					Palo Alto
 				</Tabs.Trigger>
 				<Tabs.Trigger
 					className='TabsTrigger w-fit border border-b-2 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500'
@@ -30,7 +30,7 @@ export function SwitchReportComponent({ cortexRssFeed, defenderRssFeed, splunkRs
 				</Tabs.Trigger>
 			</Tabs.List>
 			<Tabs.Content className='TabsContent' value='tab1'>
-				<Cortex cortexRssFeed={cortexRssFeed} />
+				<PaloAlto paloAltoRssFeed={paloAltoRssFeed} />
 			</Tabs.Content>
 			<Tabs.Content className='TabsContent' value='tab2'>
 				<Defender defenderRssFeed={defenderRssFeed} />
@@ -43,7 +43,7 @@ export function SwitchReportComponent({ cortexRssFeed, defenderRssFeed, splunkRs
 }
 
 export interface SwitchReportComponentProps {
-	cortexRssFeed: RssFeedType;
+	paloAltoRssFeed: RssFeedType;
 	defenderRssFeed: RssFeedType;
 	splunkRssFeed: RssFeedType;
 }

@@ -9,7 +9,7 @@ export type RssFeedType = {
 
 const parser = new Parser();
 
-async function getCortexData(): Promise<RssFeedType> {
+async function getPaloAltoData(): Promise<RssFeedType> {
 	const res = await fetch(`https://security.paloaltonetworks.com/rss.xml`, {
 		cache: 'no-store',
 	});
@@ -37,15 +37,15 @@ async function getSplunkData(): Promise<RssFeedType> {
 }
 
 export default async function Home() {
-	const [cortexData, defenderData, splunkData] = await Promise.all([
-		getCortexData(),
+	const [paloAltoData, defenderData, splunkData] = await Promise.all([
+		getPaloAltoData(),
 		getDefenderData(),
 		getSplunkData(),
 	]);
 
 	return (
 		<div className='h-screen'>
-			<SwitchReportComponent cortexRssFeed={cortexData} defenderRssFeed={defenderData} splunkRssFeed={splunkData} />
+			<SwitchReportComponent paloAltoRssFeed={paloAltoData} defenderRssFeed={defenderData} splunkRssFeed={splunkData} />
 		</div>
 	);
 }
