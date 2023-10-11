@@ -18,7 +18,7 @@ async function getPaloAltoData(): Promise<RssFeedType> {
 	return rssFeed;
 }
 
-async function getDefenderData(): Promise<RssFeedType> {
+async function getMicroSoftData(): Promise<RssFeedType> {
 	const res = await fetch(`https://api.msrc.microsoft.com/update-guide/rss`, {
 		cache: 'no-store',
 	});
@@ -37,15 +37,19 @@ async function getSplunkData(): Promise<RssFeedType> {
 }
 
 export default async function Home() {
-	const [paloAltoData, defenderData, splunkData] = await Promise.all([
+	const [paloAltoData, microsoftData, splunkData] = await Promise.all([
 		getPaloAltoData(),
-		getDefenderData(),
+		getMicroSoftData(),
 		getSplunkData(),
 	]);
 
 	return (
 		<div className='h-screen'>
-			<SwitchReportComponent paloAltoRssFeed={paloAltoData} defenderRssFeed={defenderData} splunkRssFeed={splunkData} />
+			<SwitchReportComponent
+				paloAltoRssFeed={paloAltoData}
+				microSoftRssFeed={microsoftData}
+				splunkRssFeed={splunkData}
+			/>
 		</div>
 	);
 }

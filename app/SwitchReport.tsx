@@ -1,12 +1,16 @@
 'use client';
 
 import * as Tabs from '@radix-ui/react-tabs';
-import { Defender } from './Components/Defender';
+import { MicroSoft } from './Components/MicroSoft';
 import { PaloAlto } from './Components/PaloAlto';
 import { Splunk } from './Components/Splunk';
 import { RssFeedType } from './page';
 
-export function SwitchReportComponent({ paloAltoRssFeed, defenderRssFeed, splunkRssFeed }: SwitchReportComponentProps) {
+export function SwitchReportComponent({
+	paloAltoRssFeed,
+	microSoftRssFeed,
+	splunkRssFeed,
+}: SwitchReportComponentProps) {
 	return (
 		<Tabs.Root className='TabsRoot' defaultValue='tab1'>
 			<Tabs.List className='TabsList flex justify-center pb-4 pt-4' aria-label=''>
@@ -20,7 +24,7 @@ export function SwitchReportComponent({ paloAltoRssFeed, defenderRssFeed, splunk
 					className='TabsTrigger w-fit border border-b-2 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500'
 					value='tab2'
 				>
-					Defender
+					MicroSoft
 				</Tabs.Trigger>
 				<Tabs.Trigger
 					className='TabsTrigger w-fit rounded-tr-md border border-b-2 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500'
@@ -33,7 +37,7 @@ export function SwitchReportComponent({ paloAltoRssFeed, defenderRssFeed, splunk
 				<PaloAlto paloAltoRssFeed={paloAltoRssFeed} />
 			</Tabs.Content>
 			<Tabs.Content className='TabsContent' value='tab2'>
-				<Defender defenderRssFeed={defenderRssFeed} />
+				<MicroSoft microSoftRssFeed={microSoftRssFeed} />
 			</Tabs.Content>
 			<Tabs.Content className='TabsContent' value='tab3'>
 				<Splunk splunkRssFeed={splunkRssFeed} />
@@ -44,6 +48,6 @@ export function SwitchReportComponent({ paloAltoRssFeed, defenderRssFeed, splunk
 
 export interface SwitchReportComponentProps {
 	paloAltoRssFeed: RssFeedType;
-	defenderRssFeed: RssFeedType;
+	microSoftRssFeed: RssFeedType;
 	splunkRssFeed: RssFeedType;
 }
