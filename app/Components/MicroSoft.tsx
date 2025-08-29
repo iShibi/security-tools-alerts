@@ -4,12 +4,11 @@ import { useState } from 'react';
 import { RssFeedType } from '../page';
 
 export function MicroSoft({ microSoftRssFeed }: MicroSoftParams) {
-	console.log(microSoftRssFeed);
 	const [showOnlyDefender, toggleShowOnlyDefender] = useState<boolean>(false);
 	return (
 		<div className='grid grid-cols-1 gap-y-4 px-4'>
 			<div className='flex gap-x-2'>
-				<div className='flex border select-none border-dotted border-slate-800 rounded-md px-1 shadow-md'>
+				<div className='flex rounded-md border border-dashed border-slate-800 px-2 shadow-md select-none dark:border-gray-300'>
 					<input
 						id='cortex-checkbox'
 						type='checkbox'
@@ -18,7 +17,7 @@ export function MicroSoft({ microSoftRssFeed }: MicroSoftParams) {
 						name='Cortex'
 						className='cursor-pointer'
 					/>
-					<label htmlFor='cortex-checkbox' className='block p-1 cursor-pointer'>
+					<label htmlFor='cortex-checkbox' className='block cursor-pointer px-2 py-1'>
 						Show Only Defender
 					</label>
 				</div>
@@ -42,7 +41,7 @@ export function Defender({ defenderRssFeed }: DefenderParams) {
 			{defenderRssFeed.items.map(item => {
 				if (!item.title?.includes('Defender')) return;
 				return (
-					<div key={item.title} className='bg-slate-300/80 shadow-md px-4 py-2 rounded-md'>
+					<div key={item.title} className='rounded-md bg-slate-300/80 px-4 py-2 shadow-md dark:bg-gray-800'>
 						<h1 className='font-bold'>{item.title}</h1>
 						<p className='text-sm font-light'>
 							{new Date(Date.parse(item.pubDate!)).toLocaleString(undefined, {
@@ -53,7 +52,7 @@ export function Defender({ defenderRssFeed }: DefenderParams) {
 							})}
 						</p>
 						<p>{item.content}</p>
-						<a href={item.link} target='_blank' rel='noopener noreferrer' className='text-blue-700'>
+						<a href={item.link} target='_blank' rel='noopener noreferrer' className='text-blue-700 dark:text-blue-400'>
 							{item.link}
 						</a>
 					</div>
@@ -68,7 +67,7 @@ export function OtherProducts({ otherProductRssFeed }: OtherProductsParams) {
 		<div className='grid grid-cols-1 gap-y-2'>
 			{otherProductRssFeed.items.map(item => {
 				return (
-					<div key={item.title} className='bg-slate-300/80 shadow-md px-4 py-2 rounded-md'>
+					<div key={item.title} className='rounded-md bg-slate-300/80 px-4 py-2 shadow-md dark:bg-gray-800'>
 						<h1 className='font-bold'>{item.title}</h1>
 						<p className='text-sm font-light'>
 							{new Date(Date.parse(item.pubDate!)).toLocaleString(undefined, {
@@ -79,7 +78,7 @@ export function OtherProducts({ otherProductRssFeed }: OtherProductsParams) {
 							})}
 						</p>
 						<p>{item.content}</p>
-						<a href={item.link} target='_blank' rel='noopener noreferrer' className='text-blue-700'>
+						<a href={item.link} target='_blank' rel='noopener noreferrer' className='text-blue-700 dark:text-blue-400'>
 							{item.link}
 						</a>
 					</div>

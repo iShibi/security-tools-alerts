@@ -13,21 +13,21 @@ export function SwitchReportComponent({
 }: SwitchReportComponentProps) {
 	return (
 		<Tabs.Root className='TabsRoot' defaultValue='tab1'>
-			<Tabs.List className='TabsList flex justify-center pb-4 pt-4' aria-label=''>
+			<Tabs.List className='TabsList flex justify-center pt-4 pb-4' aria-label=''>
 				<Tabs.Trigger
-					className='TabsTrigger w-fit rounded-tl-md border border-b-2 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500'
+					className='TabsTrigger w-fit rounded-tl-md border border-b-2 border-gray-200 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500 dark:border-gray-600'
 					value='tab1'
 				>
 					Palo Alto
 				</Tabs.Trigger>
 				<Tabs.Trigger
-					className='TabsTrigger w-fit border border-b-2 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500'
+					className='TabsTrigger w-fit border border-b-2 border-gray-200 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500 dark:border-gray-600'
 					value='tab2'
 				>
-					MicroSoft
+					Microsoft
 				</Tabs.Trigger>
 				<Tabs.Trigger
-					className='TabsTrigger w-fit rounded-tr-md border border-b-2 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500'
+					className='TabsTrigger w-fit rounded-tr-md border border-b-2 border-gray-200 px-4 py-2 data-[state=active]:border-b-2 data-[state=active]:border-b-blue-500 dark:border-gray-600'
 					value='tab3'
 				>
 					Splunk
